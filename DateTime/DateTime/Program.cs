@@ -53,8 +53,21 @@ namespace DateTimeT
             {
                 Console.WriteLine("Wrong input");
             }
+            Console.WriteLine("Input your birthday in this format yyyy-mm-dd");
+            string birthDay = Console.ReadLine();
+            if (DateTime.TryParse(birthDay, out dateTime))
+            {
+                Console.WriteLine(dateTime);
+                TimeSpan daysPassed = now.Subtract(dateTime);
 
-    
+                Console.WriteLine("Days passed since: {0}", daysPassed.Days);
+            }
+            else
+            {
+                Console.WriteLine("Wrong input");
+            }
+
+
             Console.ReadLine();
         }
         static DateTime GetTomorrow()
